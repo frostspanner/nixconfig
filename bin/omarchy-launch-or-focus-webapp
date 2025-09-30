@@ -1,0 +1,8 @@
+#!/bin/bash
+
+if (($# == 0)); then
+  echo "Usage: mothnixy-launch-or-focus-webapp [window-pattern] [url]"
+  exit 1
+fi
+
+exec mothnixy-launch-or-focus "$1" "mothnixy-launch-webapp '$2'"

@@ -1,0 +1,8 @@
+#!/bin/bash
+
+set -e
+
+mothnixy-update-available-reset
+mothnixy-update-system-pkgs
+mothnixy-migrate
+mothnixy-update-restart

@@ -1,0 +1,5 @@
+#!/bin/bash
+
+mothnixy-refresh-config waybar/config.jsonc
+mothnixy-refresh-config waybar/style.css
+mothnixy-restart-waybar

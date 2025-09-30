@@ -1,0 +1,4 @@
+#!/bin/bash
+
+cmd="$*"
+exec setsid uwsm app -- alacritty --class=Omarchy --title=Omarchy -e bash -c "mothnixy-show-logo; $cmd; mothnixy-show-done"

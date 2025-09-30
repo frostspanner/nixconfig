@@ -1,0 +1,7 @@
+#!/bin/bash
+
+mothnixy-refresh-config hypr/autostart.conf
+mothnixy-refresh-config hypr/bindings.conf
+mothnixy-refresh-config hypr/envs.conf
+mothnixy-refresh-config hypr/input.conf
+mothnixy-refresh-config hypr/hyprland.conf

@@ -1,0 +1,4 @@
+#!/bin/bash
+
+mothnixy-refresh-config hypr/hyprsunset.conf
+mothnixy-restart-hyprsunset
