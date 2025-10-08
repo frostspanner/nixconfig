@@ -52,13 +52,6 @@ in {
   services.udev.enable = true;
   services.power-profiles-daemon.enable = true;
   services.btrfs.autoScrub.enable = true;
-  services.flatpak.enable = true;
-  xdg.portal.enable = true;
-  #xdg.portal.config.common.default = "*";
-  xdg.portal.extraPortals = with pkgs; [
-    #xdg-desktop-portal-hyprland
-    xdg-desktop-portal-gtk
-  ];
 
   networking.networkmanager.enable = true;
   networking.networkmanager.insertNameservers = [
