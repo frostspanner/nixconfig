@@ -18,7 +18,6 @@
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    mothnixy.url = "path:/home/tpb/mothnixy";
   };
   outputs = inputs: import ./. inputs;
 }

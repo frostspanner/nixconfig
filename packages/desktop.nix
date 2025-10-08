@@ -1,7 +1,9 @@
 {pkgs, ...}: {
+imports = [
+../modules/gaming
+];
   environment.systemPackages = with pkgs; [
     obsidian
-    zed-editor
     ghostty
     kitty
     jq

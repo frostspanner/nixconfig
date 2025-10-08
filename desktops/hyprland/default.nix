@@ -25,58 +25,20 @@
 
   #services.hyprpolkitagent.enable = true;
 
-  imports = [../../packages/desktop.nix];
+  imports = [
+  ../../packages/desktop.nix
+  ../../packages/cli.nix
+  ../../packages/twm.nix
+  ];
 
   environment.systemPackages = with pkgs; [
     (mpv.override {scripts = [mpvScripts.mpris];})
-    bat
-    brightnessctl
-    btop
-    cpufrequtils
-    curl
-    devenv
-    ethtool
-    fd
-    fontconfig
-    fzf
     hyprcursor
     hyprpicker
     hyprpolkitagent
     hyprshot
-    imagemagick
-    jujutsu
-    lazyjj
     libqalculate
-    less
-    libnotify
-    lm_sensors
-    mako
-    man
-    nushell
-    p7zip
-    pciutils
-    pipe-viewer
-    pzip
-    ripgrep
-    starship
-    swaybg
-    swayimg
-    swayosd
-    sysstat
-    unzip
-    usbutils
-    walker
-    wl-clipboard-rs
-    wl-clip-persist
-    wl-screenrec
-    xcursor-pro
-    xdg-desktop-portal-gtk
-    xdg-user-dirs
-    xdg-utils
-    yazi
     yt-dlp
-    zathura
-    zip
   ];
 
   services.udev.packages = [pkgs.swayosd];

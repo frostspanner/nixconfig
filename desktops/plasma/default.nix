@@ -12,6 +12,8 @@
     sddm-kcm
     dolphin
     konsole
+    kcolorchooser
+    kolourpaint
   ];
 in {
   services.xserver.enable = true;
@@ -24,6 +26,7 @@ in {
 
   imports = [
     ../../packages/desktop.nix
-    ../../desktops/hyprland
+    ../../packages/cli.nix
+    ../../packages/dev.nix
   ];
 }
