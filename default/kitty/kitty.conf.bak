@@ -1,0 +1,19 @@
+# hide_window_decorations yes
+
+window_padding_width 0 12
+include font-symbols.conf
+
+# BEGIN_KITTY_THEME
+# Flexoki (Light)
+include current-theme.conf
+# END_KITTY_THEME
+
+# BEGIN_KITTY_FONTS
+font_size 14
+font_family      family="IBM Plex Mono"
+bold_font        auto
+italic_font      auto
+bold_italic_font auto
+# END_KITTY_FONTS
+
+startup_session nu.conf
