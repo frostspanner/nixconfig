@@ -4,7 +4,7 @@
   "position": "top",
   "spacing": 0,
   "height": 32,
-  "modules-left": ["custom/mothnixy", "hyprland/workspaces"],
+  "modules-left": ["custom/nixconfig", "hyprland/workspaces"],
   "modules-center": ["clock", "custom/update", "custom/screenrecording-indicator"],
   "modules-right": [
     "group/tray-expander",
@@ -33,15 +33,15 @@
     "persistent-workspaces": {
     }
   },
-  "custom/mothnixy": {
+  "custom/nixconfig": {
     "format": "<span></span>",
-    "on-click": "mothnixy-menu",
+    "on-click": "nixconfig-menu",
     "tooltip-format": "Menu\n\nSuper + Alt + Space"
   },
   "custom/update": {
     "format": "",
-    "exec": "mothnixy-update-available",
-    "on-click": "mothnixy-launch-floating-terminal-with-presentation mothnixy-update",
+    "exec": "nixconfig-update-available",
+    "on-click": "nixconfig-launch-floating-terminal-with-presentation nixconfig-update",
     "tooltip-format": "Omarchy update available",
     "signal": 7,
     "interval": 3600
@@ -56,7 +56,7 @@
     "format": "{:L%A %H:%M}",
     "format-alt": "{:L%d %B W%V %Y}",
     "tooltip": false,
-    "on-click-right": "mothnixy-cmd-tzupdate"
+    "on-click-right": "nixconfig-cmd-tzupdate"
   },
   "network": {
     "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
@@ -69,7 +69,7 @@
     "tooltip-format-disconnected": "Disconnected",
     "interval": 3,
     "spacing": 1,
-    "on-click": "mothnixy-launch-wifi"
+    "on-click": "nixconfig-launch-wifi"
   },
   "battery": {
     "format": "{capacity}% {icon}",
@@ -84,7 +84,7 @@
     "tooltip-format-discharging": "{power:>1.0f}W↓ {capacity}%",
     "tooltip-format-charging": "{power:>1.0f}W↑ {capacity}%",
     "interval": 5,
-    "on-click": "mothnixy-menu power",
+    "on-click": "nixconfig-menu power",
     "states": {
       "warning": 20,
       "critical": 10
@@ -121,7 +121,7 @@
     "tooltip": false
   },
   "custom/screenrecording-indicator": {
-    "on-click": "mothnixy-cmd-screenrecord",
+    "on-click": "nixconfig-cmd-screenrecord",
     "exec": "$OMARCHY_PATH/default/waybar/indicators/screen-recording.sh",
     "signal": 8,
     "return-type": "json"

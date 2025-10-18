@@ -1,9 +1,9 @@
-@import "../mothnixy/current/theme/waybar.css";
+@import "../nixconfig/current/theme/waybar.css";
 
 window#waybar {
   background-color: @background;
   color: @foreground;
-border-bottom: 1px solid @foreground;
+border-bottom: 2px solid @shadow;
   min-height: 0;
   font-family: Perun, Adwaita Sans, Symbols Nerd Font Mono;
 font-weight: 400;  
@@ -37,7 +37,7 @@ font-size: 14px;
 #network,
 #bluetooth,
 #pulseaudio,
-#custom-mothnixy,
+#custom-nixconfig,
 #custom-screenrecording-indicator,
 #custom-update {
   min-width: 12px;

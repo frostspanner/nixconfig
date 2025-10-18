@@ -1,3 +1,3 @@
 #!/bin/bash
 
-mothnixy-restart-app hyprsunset
+nixconfig-restart-app hyprsunset

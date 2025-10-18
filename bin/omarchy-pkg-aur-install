@@ -20,5 +20,5 @@ if [[ -n "$pkg_names" ]]; then
   # Convert newline-separated selections to space-separated for yay
   echo "$pkg_names" | tr '\n' ' ' | xargs yay -S --noconfirm
   sudo updatedb
-  mothnixy-show-done
+  nixconfig-show-done
 fi

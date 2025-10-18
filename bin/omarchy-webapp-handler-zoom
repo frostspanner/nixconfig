@@ -17,4 +17,4 @@ if [[ $url =~ ^zoom(mtg|us):// ]]; then
   fi
 fi
 
-exec mothnixy-launch-webapp "$web_url"
+exec nixconfig-launch-webapp "$web_url"

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Change gnome modes
-if [[ -f ~/.config/mothnixy/current/theme/light.mode ]]; then
+if [[ -f ~/.config/nixconfig/current/theme/light.mode ]]; then
   gsettings set org.gnome.desktop.interface color-scheme "prefer-light"
   gsettings set org.gnome.desktop.interface gtk-theme "Adwaita"
 else
@@ -10,7 +10,7 @@ else
 fi
 
 # Change gnome icon theme color
-GNOME_ICONS_THEME=~/.config/mothnixy/current/theme/icons.theme
+GNOME_ICONS_THEME=~/.config/nixconfig/current/theme/icons.theme
 if [[ -f $GNOME_ICONS_THEME ]]; then
   gsettings set org.gnome.desktop.interface icon-theme "$(<$GNOME_ICONS_THEME)"
 else

@@ -113,19 +113,6 @@ in {
   networking.hostId = "0d899fb8";
   # environment.systemPackages = with pkgs; [];
 
-  fonts.packages = with pkgs; [
-    adwaita-fonts
-    noto-fonts
-    noto-fonts-cjk-sans
-    noto-fonts-emoji
-    ibm-plex
-    nerd-fonts.symbols-only
-    cascadia-code
-    cozette
-    commit-mono
-    fixedsys-excelsior
-  ];
-
   imports = [
     inputs.disko.nixosModules.default
     ./disko.nix

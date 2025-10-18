@@ -2,6 +2,6 @@
 
 set -e
 
-mothnixy-snapshot create || [ $? -eq 127 ]
-mothnixy-update-git
-mothnixy-update-perform
+nixconfig-snapshot create || [ $? -eq 127 ]
+nixconfig-update-git
+nixconfig-update-perform

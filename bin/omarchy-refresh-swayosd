@@ -1,5 +1,5 @@
 #!/bin/bash
 
-mothnixy-refresh-config swayosd/config.toml
-mothnixy-refresh-config swayosd/style.css
-mothnixy-restart-swayosd
+nixconfig-refresh-config swayosd/config.toml
+nixconfig-refresh-config swayosd/style.css
+nixconfig-restart-swayosd

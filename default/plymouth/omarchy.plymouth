@@ -4,8 +4,8 @@ Description=Omarchy splash screen.
 ModuleName=script
 
 [script]
-ImageDir=/usr/share/plymouth/themes/mothnixy
-ScriptFile=/usr/share/plymouth/themes/mothnixy/mothnixy.script
+ImageDir=/usr/share/plymouth/themes/nixconfig
+ScriptFile=/usr/share/plymouth/themes/nixconfig/nixconfig.script
 ConsoleLogBackgroundColor=0x1a1b26
 MonospaceFont=Cantarell 11
 Font=Cantarell 11

@@ -1,8 +1,8 @@
 #!/bin/bash
 
-CHROMIUM_THEME=~/.config/mothnixy/current/theme/chromium.theme
+CHROMIUM_THEME=~/.config/nixconfig/current/theme/chromium.theme
 
-if mothnixy-cmd-present chromium || mothnixy-cmd-present brave; then
+if nixconfig-cmd-present chromium || nixconfig-cmd-present brave; then
   if [[ -f $CHROMIUM_THEME ]]; then
     rgb=$(<$CHROMIUM_THEME)
     THEME_HEX_COLOR=$(printf '#%02x%02x%02x' ${rgb//,/ })
@@ -11,12 +11,12 @@ if mothnixy-cmd-present chromium || mothnixy-cmd-present brave; then
     THEME_HEX_COLOR="#1c2027"
   fi
 
-  if mothnixy-cmd-present chromium; then
+  if nixconfig-cmd-present chromium; then
     echo "{\"BrowserThemeColor\": \"$THEME_HEX_COLOR\"}" | tee "/etc/chromium/policies/managed/color.json" >/dev/null
     chromium --refresh-platform-policy --no-startup-window
   fi
 
-  if mothnixy-cmd-present brave; then
+  if nixconfig-cmd-present brave; then
     echo "{\"BrowserThemeColor\": \"$THEME_HEX_COLOR\"}" | tee "/etc/brave/policies/managed/color.json" >/dev/null
     brave --refresh-platform-policy --no-startup-window
   fi

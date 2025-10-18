@@ -1,20 +1,20 @@
 #!/bin/bash
 
 COMMAND="$1"
-OMARCHY_PATH=${OMARCHY_PATH:-$HOME/.local/share/mothnixy}
+OMARCHY_PATH=${OMARCHY_PATH:-$HOME/.local/share/nixconfig}
 
 if [[ -z $COMMAND ]]; then
-  echo "Usage: mothnixy-snapshot <create|restore>" >&2
+  echo "Usage: nixconfig-snapshot <create|restore>" >&2
   exit 1
 fi
 
 if ! command -v snapper &>/dev/null; then
-  exit 127 # mothnixy-update can use this to just ignore if snapper is not available
+  exit 127 # nixconfig-update can use this to just ignore if snapper is not available
 fi
 
 case "$COMMAND" in
 create)
-  DESC="$(mothnixy-version)"
+  DESC="$(nixconfig-version)"
 
   echo -e "\e[32mCreate system snapshot\e[0m"
   

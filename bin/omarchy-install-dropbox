@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo "Installing all dependencies..."
-mothnixy-pkg-add dropbox dropbox-cli libappindicator-gtk3 python-gpgme nautilus-dropbox
+nixconfig-pkg-add dropbox dropbox-cli libappindicator-gtk3 python-gpgme nautilus-dropbox
 
 echo "Starting Dropbox..."
 uwsm app -- dropbox-cli start &>/dev/null &

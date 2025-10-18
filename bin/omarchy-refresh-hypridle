@@ -1,4 +1,4 @@
 #!/bin/bash
 
-mothnixy-refresh-config hypr/hypridle.conf
-mothnixy-restart-hypridle
+nixconfig-refresh-config hypr/hypridle.conf
+nixconfig-restart-hypridle

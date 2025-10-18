@@ -2,6 +2,6 @@
 
 clear
 echo -e "\033[32m"
-cat <~/.local/share/mothnixy/logo.txt
+cat <~/.local/share/nixconfig/logo.txt
 echo -e "\033[0m"
 echo

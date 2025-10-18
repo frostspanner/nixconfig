@@ -2,7 +2,7 @@ font-family = Commit Mono
 font-size = 11
 window-padding-x = 10
 
-config-file = ~/.config/mothnixy/current/theme/ghostty.conf
+config-file = ~/.config/nixconfig/current/theme/ghostty.conf
 command = nu
 
 quit-after-last-window-closed = false

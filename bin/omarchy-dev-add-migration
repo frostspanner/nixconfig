@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd ~/.local/share/mothnixy
-migration_file="$HOME/.local/share/mothnixy/migrations/$(git log -1 --format=%cd --date=unix).sh"
+cd ~/.local/share/nixconfig
+migration_file="$HOME/.local/share/nixconfig/migrations/$(git log -1 --format=%cd --date=unix).sh"
 touch $migration_file
 nvim $migration_file

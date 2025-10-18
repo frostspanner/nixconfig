@@ -1,7 +1,7 @@
 #!/bin/bash
 
-if [ -f ~/.config/mothnixy/current/theme/eza.yml ]; then
-  ln -snf ~/.config/mothnixy/current/theme/eza.yml ~/.config/eza/theme.yml
+if [ -f ~/.config/nixconfig/current/theme/eza.yml ]; then
+  ln -snf ~/.config/nixconfig/current/theme/eza.yml ~/.config/eza/theme.yml
 else
   rm -f ~/.config/eza/theme.yml
 fi

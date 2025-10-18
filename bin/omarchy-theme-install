@@ -1,10 +1,10 @@
 #!/bin/bash
 
-# mothnixy-theme-install: Install a new theme from a git repo for Omarchy
-# Usage: mothnixy-theme-install <git-repo-url>
+# nixconfig-theme-install: Install a new theme from a git repo for Omarchy
+# Usage: nixconfig-theme-install <git-repo-url>
 
 if [ -z "$1" ]; then
-  echo -e "\e[32mSee https://manuals.omamix.org/2/the-mothnixy-manual/90/extra-themes\n\e[0m"
+  echo -e "\e[32mSee https://manuals.omamix.org/2/the-nixconfig-manual/90/extra-themes\n\e[0m"
   REPO_URL=$(gum input --placeholder="Git repo URL for theme" --header="")
 else
   REPO_URL="$1"
@@ -14,8 +14,8 @@ if [ -z "$REPO_URL" ]; then
   exit 1
 fi
 
-THEMES_DIR="$HOME/.config/mothnixy/themes"
-THEME_NAME=$(basename "$REPO_URL" .git | sed -E 's/^mothnixy-//; s/-theme$//')
+THEMES_DIR="$HOME/.config/nixconfig/themes"
+THEME_NAME=$(basename "$REPO_URL" .git | sed -E 's/^nixconfig-//; s/-theme$//')
 THEME_PATH="$THEMES_DIR/$THEME_NAME"
 
 # Remove existing theme if present
@@ -23,11 +23,11 @@ if [ -d "$THEME_PATH" ]; then
   rm -rf "$THEME_PATH"
 fi
 
-# Clone the repo directly to ~/.config/mothnixy/themes
+# Clone the repo directly to ~/.config/nixconfig/themes
 if ! git clone "$REPO_URL" "$THEME_PATH"; then
   echo "Error: Failed to clone theme repo."
   exit 1
 fi
 
-# Apply the new theme with mothnixy-theme-set
-mothnixy-theme-set $THEME_NAME
+# Apply the new theme with nixconfig-theme-set
+nixconfig-theme-set $THEME_NAME

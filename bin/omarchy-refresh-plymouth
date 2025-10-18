@@ -1,7 +1,7 @@
 #!/bin/bash
 
-sudo cp ~/.local/share/mothnixy/default/plymouth/* /usr/share/plymouth/themes/mothnixy/
-sudo plymouth-set-default-theme mothnixy
+sudo cp ~/.local/share/nixconfig/default/plymouth/* /usr/share/plymouth/themes/nixconfig/
+sudo plymouth-set-default-theme nixconfig
 
 if command -v limine-mkinitcpio &>/dev/null; then
   sudo limine-mkinitcpio

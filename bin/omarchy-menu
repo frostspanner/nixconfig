@@ -1,6 +1,6 @@
 #!/bin/bash
 
-export PATH="$HOME/.local/share/mothnixy/bin:$PATH"
+export PATH="$HOME/.local/share/nixconfig/bin:$PATH"
 
 # Set to true when going directly to a submenu, so we can exit directly
 BACK_TO_EXIT=false
@@ -41,12 +41,12 @@ terminal() {
 }
 
 present_terminal() {
-  mothnixy-launch-floating-terminal-with-presentation $1
+  nixconfig-launch-floating-terminal-with-presentation $1
 }
 
 open_in_editor() {
   notify-send "Editing config file" "$1"
-  mothnixy-launch-editor "$1"
+  nixconfig-launch-editor "$1"
 }
 
 install() {
@@ -58,11 +58,11 @@ install_and_launch() {
 }
 
 install_font() {
-  present_terminal "echo 'Installing $1...'; sudo pacman -S --noconfirm --needed $2 && sleep 2 && mothnixy-font-set '$3'"
+  present_terminal "echo 'Installing $1...'; sudo pacman -S --noconfirm --needed $2 && sleep 2 && nixconfig-font-set '$3'"
 }
 
 install_terminal() {
-  present_terminal "mothnixy-install-terminal $1"
+  present_terminal "nixconfig-install-terminal $1"
 }
 
 aur_install() {
@@ -75,12 +75,12 @@ aur_install_and_launch() {
 
 show_learn_menu() {
   case $(menu "Learn" "  Keybindings\n  Omarchy\n  Hyprland\n󰣇  Arch\n  Neovim\n󱆃  Bash") in
-  *Keybindings*) mothnixy-menu-keybindings ;;
-  *Omarchy*) mothnixy-launch-webapp "https://learn.omacom.io/2/the-mothnixy-manual" ;;
-  *Hyprland*) mothnixy-launch-webapp "https://wiki.hypr.land/" ;;
-  *Arch*) mothnixy-launch-webapp "https://wiki.archlinux.org/title/Main_page" ;;
-  *Bash*) mothnixy-launch-webapp "https://devhints.io/bash" ;;
-  *Neovim*) mothnixy-launch-webapp "https://www.lazyvim.org/keymaps" ;;
+  *Keybindings*) nixconfig-menu-keybindings ;;
+  *Omarchy*) nixconfig-launch-webapp "https://learn.omacom.io/2/the-nixconfig-manual" ;;
+  *Hyprland*) nixconfig-launch-webapp "https://wiki.hypr.land/" ;;
+  *Arch*) nixconfig-launch-webapp "https://wiki.archlinux.org/title/Main_page" ;;
+  *Bash*) nixconfig-launch-webapp "https://devhints.io/bash" ;;
+  *Neovim*) nixconfig-launch-webapp "https://www.lazyvim.org/keymaps" ;;
   *) show_main_menu ;;
   esac
 }
@@ -105,38 +105,38 @@ show_capture_menu() {
 
 show_screenshot_menu() {
   case $(menu "Screenshot" "  Region\n  Window\n  Display") in
-  *Region*) mothnixy-cmd-screenshot ;;
-  *Window*) mothnixy-cmd-screenshot window ;;
-  *Display*) mothnixy-cmd-screenshot output ;;
+  *Region*) nixconfig-cmd-screenshot ;;
+  *Window*) nixconfig-cmd-screenshot window ;;
+  *Display*) nixconfig-cmd-screenshot output ;;
   *) show_capture_menu ;;
   esac
 }
 
 show_screenrecord_menu() {
   case $(menu "Screenrecord" "  Region\n  Region + Audio\n  Display\n  Display + Audio") in
-  *"Region + Audio"*) mothnixy-cmd-screenrecord region audio ;;
-  *Region*) mothnixy-cmd-screenrecord ;;
-  *"Display + Audio"*) mothnixy-cmd-screenrecord output audio ;;
-  *Display*) mothnixy-cmd-screenrecord output ;;
+  *"Region + Audio"*) nixconfig-cmd-screenrecord region audio ;;
+  *Region*) nixconfig-cmd-screenrecord ;;
+  *"Display + Audio"*) nixconfig-cmd-screenrecord output audio ;;
+  *Display*) nixconfig-cmd-screenrecord output ;;
   *) show_capture_menu ;;
   esac
 }
 
 show_share_menu() {
   case $(menu "Share" "  Clipboard\n  File \n  Folder") in
-  *Clipboard*) terminal bash -c "mothnixy-cmd-share clipboard" ;;
-  *File*) terminal bash -c "mothnixy-cmd-share file" ;;
-  *Folder*) terminal bash -c "mothnixy-cmd-share folder" ;;
+  *Clipboard*) terminal bash -c "nixconfig-cmd-share clipboard" ;;
+  *File*) terminal bash -c "nixconfig-cmd-share file" ;;
+  *Folder*) terminal bash -c "nixconfig-cmd-share folder" ;;
   *) back_to show_trigger_menu ;;
   esac
 }
 
 show_toggle_menu() {
   case $(menu "Toggle" "󱄄  Screensaver\n󰔎  Nightlight\n󱫖  Idle Lock\n󰍜  Top Bar") in
-  *Screensaver*) mothnixy-toggle-screensaver ;;
-  *Nightlight*) mothnixy-toggle-nightlight ;;
-  *Idle*) mothnixy-toggle-idle ;;
-  *Bar*) mothnixy-toggle-waybar ;;
+  *Screensaver*) nixconfig-toggle-screensaver ;;
+  *Nightlight*) nixconfig-toggle-nightlight ;;
+  *Idle*) nixconfig-toggle-idle ;;
+  *Bar*) nixconfig-toggle-waybar ;;
   *) show_trigger_menu ;;
   esac
 }
@@ -145,29 +145,29 @@ show_style_menu() {
   case $(menu "Style" "󰸌  Theme\n  Font\n  Background\n  Hyprland\n󱄄  Screensaver\n  About") in
   *Theme*) show_theme_menu ;;
   *Font*) show_font_menu ;;
-  *Background*) mothnixy-theme-bg-next ;;
+  *Background*) nixconfig-theme-bg-next ;;
   *Hyprland*) open_in_editor ~/.config/hypr/looknfeel.conf ;;
-  *Screensaver*) open_in_editor ~/.config/mothnixy/branding/screensaver.txt ;;
-  *About*) open_in_editor ~/.config/mothnixy/branding/about.txt ;;
+  *Screensaver*) open_in_editor ~/.config/nixconfig/branding/screensaver.txt ;;
+  *About*) open_in_editor ~/.config/nixconfig/branding/about.txt ;;
   *) show_main_menu ;;
   esac
 }
 
 show_theme_menu() {
-  theme=$(menu "Theme" "$(mothnixy-theme-list)" "" "$(mothnixy-theme-current)")
+  theme=$(menu "Theme" "$(nixconfig-theme-list)" "" "$(nixconfig-theme-current)")
   if [[ "$theme" == "CNCLD" || -z "$theme" ]]; then
     back_to show_style_menu
   else
-    mothnixy-theme-set "$theme"
+    nixconfig-theme-set "$theme"
   fi
 }
 
 show_font_menu() {
-  theme=$(menu "Font" "$(mothnixy-font-list)" "-w 350" "$(mothnixy-font-current)")
+  theme=$(menu "Font" "$(nixconfig-font-list)" "-w 350" "$(nixconfig-font-current)")
   if [[ "$theme" == "CNCLD" || -z "$theme" ]]; then
     back_to show_style_menu
   else
-    mothnixy-font-set "$theme"
+    nixconfig-font-set "$theme"
   fi
 }
 
@@ -181,7 +181,7 @@ show_setup_menu() {
   *Audio*) $TERMINAL --class=Wiremix -e wiremix ;;
   *Wifi*)
     rfkill unblock wifi
-    mothnixy-launch-wifi
+    nixconfig-launch-wifi
     ;;
   *Bluetooth*)
     rfkill unblock bluetooth
@@ -192,7 +192,7 @@ show_setup_menu() {
   *Keybindings*) open_in_editor ~/.config/hypr/bindings.conf ;;
   *Input*) open_in_editor ~/.config/hypr/input.conf ;;
   *Defaults*) open_in_editor ~/.config/uwsm/default ;;
-  *DNS*) present_terminal mothnixy-setup-dns ;;
+  *DNS*) present_terminal nixconfig-setup-dns ;;
   *Security*) show_setup_security_menu ;;
   *Config*) show_setup_config_menu ;;
   *) show_main_menu ;;
@@ -200,7 +200,7 @@ show_setup_menu() {
 }
 
 show_setup_power_menu() {
-  profile=$(menu "Power Profile" "$(mothnixy-powerprofiles-list)" "" "$(powerprofilesctl get)")
+  profile=$(menu "Power Profile" "$(nixconfig-powerprofiles-list)" "" "$(powerprofilesctl get)")
 
   if [[ "$profile" == "CNCLD" || -z "$profile" ]]; then
     back_to show_setup_menu
@@ -212,31 +212,31 @@ show_setup_power_menu() {
 show_setup_config_menu() {
   case $(menu "Setup" "  Hyprland\n  Hypridle\n  Hyprlock\n  Hyprsunset\n  Swayosd\n󰌧  Walker\n󰍜  Waybar\n󰞅  XCompose") in
   *Hyprland*) open_in_editor ~/.config/hypr/hyprland.conf ;;
-  *Hypridle*) open_in_editor ~/.config/hypr/hypridle.conf && mothnixy-restart-hypridle ;;
+  *Hypridle*) open_in_editor ~/.config/hypr/hypridle.conf && nixconfig-restart-hypridle ;;
   *Hyprlock*) open_in_editor ~/.config/hypr/hyprlock.conf ;;
-  *Hyprsunset*) open_in_editor ~/.config/hypr/hyprsunset.conf && mothnixy-restart-hyprsunset ;;
-  *Swayosd*) open_in_editor ~/.config/swayosd/config.toml && mothnixy-restart-swayosd ;;
-  *Walker*) open_in_editor ~/.config/walker/config.toml && mothnixy-restart-walker ;;
-  *Waybar*) open_in_editor ~/.config/waybar/config.jsonc && mothnixy-restart-waybar ;;
-  *XCompose*) open_in_editor ~/.XCompose && mothnixy-restart-xcompose ;;
+  *Hyprsunset*) open_in_editor ~/.config/hypr/hyprsunset.conf && nixconfig-restart-hyprsunset ;;
+  *Swayosd*) open_in_editor ~/.config/swayosd/config.toml && nixconfig-restart-swayosd ;;
+  *Walker*) open_in_editor ~/.config/walker/config.toml && nixconfig-restart-walker ;;
+  *Waybar*) open_in_editor ~/.config/waybar/config.jsonc && nixconfig-restart-waybar ;;
+  *XCompose*) open_in_editor ~/.XCompose && nixconfig-restart-xcompose ;;
   *) show_main_menu ;;
   esac
 }
 
 show_setup_security_menu() {
   case $(menu "Setup" "󰈷  Fingerprint\n  Fido2") in
-  *Fingerprint*) present_terminal mothnixy-setup-fingerprint ;;
-  *Fido2*) present_terminal mothnixy-setup-fido2 ;;
+  *Fingerprint*) present_terminal nixconfig-setup-fingerprint ;;
+  *Fido2*) present_terminal nixconfig-setup-fido2 ;;
   *) show_setup_menu ;;
   esac
 }
 
 show_install_menu() {
   case $(menu "Install" "󰣇  Package\n󰣇  AUR\n  Web App\n  TUI\n  Service\n  Style\n󰵮  Development\n  Editor\n  Terminal\n󱚤  AI\n  Gaming") in
-  *Package*) terminal mothnixy-pkg-install ;;
-  *AUR*) terminal mothnixy-pkg-aur-install ;;
-  *Web*) present_terminal mothnixy-webapp-install ;;
-  *TUI*) present_terminal mothnixy-tui-install ;;
+  *Package*) terminal nixconfig-pkg-install ;;
+  *AUR*) terminal nixconfig-pkg-aur-install ;;
+  *Web*) present_terminal nixconfig-webapp-install ;;
+  *TUI*) present_terminal nixconfig-tui-install ;;
   *Service*) show_install_service_menu ;;
   *Style*) show_install_style_menu ;;
   *Development*) show_install_development_menu ;;
@@ -250,10 +250,10 @@ show_install_menu() {
 
 show_install_service_menu() {
   case $(menu "Install" "  Dropbox\n  Tailscale\n󰟵  Bitwarden\n  Chromium Account") in
-  *Dropbox*) present_terminal mothnixy-install-dropbox ;;
-  *Tailscale*) present_terminal mothnixy-install-tailscale ;;
+  *Dropbox*) present_terminal nixconfig-install-dropbox ;;
+  *Tailscale*) present_terminal nixconfig-install-tailscale ;;
   *Bitwarden*) install_and_launch "Bitwarden" "bitwarden bitwarden-cli" "bitwarden" ;;
-  *Chromium*) present_terminal mothnixy-install-chromium-google-account ;;
+  *Chromium*) present_terminal nixconfig-install-chromium-google-account ;;
   *) show_install_menu ;;
   esac
 }
@@ -300,7 +300,7 @@ show_install_ai_menu() {
 
 show_install_gaming_menu() {
   case $(menu "Install" "  Steam\n  RetroArch [AUR]\n󰍳  Minecraft") in
-  *Steam*) present_terminal mothnixy-install-steam ;;
+  *Steam*) present_terminal nixconfig-install-steam ;;
   *RetroArch*) aur_install_and_launch "RetroArch" "retroarch retroarch-assets libretro libretro-fbneo" "com.libretro.RetroArch.desktop" ;;
   *Minecraft*) aur_install_and_launch "Minecraft [AUR]" "minecraft-launcher" "minecraft-launcher" ;;
   *) show_install_menu ;;
@@ -309,8 +309,8 @@ show_install_gaming_menu() {
 
 show_install_style_menu() {
   case $(menu "Install" "󰸌  Theme\n  Background\n  Font") in
-  *Theme*) present_terminal mothnixy-theme-install ;;
-  *Background*) nautilus ~/.config/mothnixy/current/theme/backgrounds ;;
+  *Theme*) present_terminal nixconfig-theme-install ;;
+  *Background*) nautilus ~/.config/nixconfig/current/theme/backgrounds ;;
   *Font*) show_install_font_menu ;;
   *) show_install_menu ;;
   esac
@@ -328,118 +328,118 @@ show_install_font_menu() {
 
 show_install_development_menu() {
   case $(menu "Install" "󰫏  Ruby on Rails\n  Docker DB\n  JavaScript\n  Go\n  PHP\n  Python\n  Elixir\n  Zig\n  Rust\n  Java\n  .NET\n  OCaml\n  Clojure") in
-  *Rails*) present_terminal "mothnixy-install-dev-env ruby" ;;
-  *Docker*) present_terminal mothnixy-install-docker-dbs ;;
+  *Rails*) present_terminal "nixconfig-install-dev-env ruby" ;;
+  *Docker*) present_terminal nixconfig-install-docker-dbs ;;
   *JavaScript*) show_install_javascript_menu ;;
-  *Go*) present_terminal "mothnixy-install-dev-env go" ;;
+  *Go*) present_terminal "nixconfig-install-dev-env go" ;;
   *PHP*) show_install_php_menu ;;
-  *Python*) present_terminal "mothnixy-install-dev-env python" ;;
+  *Python*) present_terminal "nixconfig-install-dev-env python" ;;
   *Elixir*) show_install_elixir_menu ;;
-  *Zig*) present_terminal "mothnixy-install-dev-env zig" ;;
-  *Rust*) present_terminal "mothnixy-install-dev-env rust" ;;
-  *Java*) present_terminal "mothnixy-install-dev-env java" ;;
-  *NET*) present_terminal "mothnixy-install-dev-env dotnet" ;;
-  *OCaml*) present_terminal "mothnixy-install-dev-env ocaml" ;;
-  *Clojure*) present_terminal "mothnixy-install-dev-env clojure" ;;
+  *Zig*) present_terminal "nixconfig-install-dev-env zig" ;;
+  *Rust*) present_terminal "nixconfig-install-dev-env rust" ;;
+  *Java*) present_terminal "nixconfig-install-dev-env java" ;;
+  *NET*) present_terminal "nixconfig-install-dev-env dotnet" ;;
+  *OCaml*) present_terminal "nixconfig-install-dev-env ocaml" ;;
+  *Clojure*) present_terminal "nixconfig-install-dev-env clojure" ;;
   *) show_install_menu ;;
   esac
 }
 
 show_install_javascript_menu() {
   case $(menu "Install" "  Node.js\n  Bun\n  Deno") in
-  *Node*) present_terminal "mothnixy-install-dev-env node" ;;
-  *Bun*) present_terminal "mothnixy-install-dev-env bun" ;;
-  *Deno*) present_terminal "mothnixy-install-dev-env deno" ;;
+  *Node*) present_terminal "nixconfig-install-dev-env node" ;;
+  *Bun*) present_terminal "nixconfig-install-dev-env bun" ;;
+  *Deno*) present_terminal "nixconfig-install-dev-env deno" ;;
   *) show_install_development_menu ;;
   esac
 }
 
 show_install_php_menu() {
   case $(menu "Install" "  PHP\n  Laravel\n  Symfony") in
-  *PHP*) present_terminal "mothnixy-install-dev-env php" ;;
-  *Laravel*) present_terminal "mothnixy-install-dev-env laravel" ;;
-  *Symfony*) present_terminal "mothnixy-install-dev-env symfony" ;;
+  *PHP*) present_terminal "nixconfig-install-dev-env php" ;;
+  *Laravel*) present_terminal "nixconfig-install-dev-env laravel" ;;
+  *Symfony*) present_terminal "nixconfig-install-dev-env symfony" ;;
   *) show_install_development_menu ;;
   esac
 }
 
 show_install_elixir_menu() {
   case $(menu "Install" "  Elixir\n  Phoenix") in
-  *Elixir*) present_terminal "mothnixy-install-dev-env elixir" ;;
-  *Phoenix*) present_terminal "mothnixy-install-dev-env phoenix" ;;
+  *Elixir*) present_terminal "nixconfig-install-dev-env elixir" ;;
+  *Phoenix*) present_terminal "nixconfig-install-dev-env phoenix" ;;
   *) show_install_development_menu ;;
   esac
 }
 
 show_remove_menu() {
   case $(menu "Remove" "󰣇  Package\n  Web App\n  TUI\n󰸌  Theme\n󰈷  Fingerprint\n  Fido2") in
-  *Package*) terminal mothnixy-pkg-remove ;;
-  *Web*) present_terminal mothnixy-webapp-remove ;;
-  *TUI*) present_terminal mothnixy-tui-remove ;;
-  *Theme*) present_terminal mothnixy-theme-remove ;;
-  *Fingerprint*) present_terminal "mothnixy-setup-fingerprint --remove" ;;
-  *Fido2*) present_terminal "mothnixy-setup-fido2 --remove" ;;
+  *Package*) terminal nixconfig-pkg-remove ;;
+  *Web*) present_terminal nixconfig-webapp-remove ;;
+  *TUI*) present_terminal nixconfig-tui-remove ;;
+  *Theme*) present_terminal nixconfig-theme-remove ;;
+  *Fingerprint*) present_terminal "nixconfig-setup-fingerprint --remove" ;;
+  *Fido2*) present_terminal "nixconfig-setup-fido2 --remove" ;;
   *) show_main_menu ;;
   esac
 }
 
 show_update_menu() {
   case $(menu "Update" " Omarchy\n Branch\n  Config\n󰸌  Extra Themes\n  Process\n󰇅  Hardware\n  Password\n  Timezone") in
-  *Omarchy*) present_terminal mothnixy-update ;;
+  *Omarchy*) present_terminal nixconfig-update ;;
   *Branch*) show_update_branch_menu ;;
   *Config*) show_update_config_menu ;;
-  *Themes*) present_terminal mothnixy-theme-update ;;
+  *Themes*) present_terminal nixconfig-theme-update ;;
   *Process*) show_update_process_menu ;;
   *Hardware*) show_update_hardware_menu ;;
-  *Timezone*) mothnixy-cmd-tzupdate ;;
+  *Timezone*) nixconfig-cmd-tzupdate ;;
   *Password*) show_update_password_menu ;;
   *) show_main_menu ;;
   esac
 }
 
 show_update_branch_menu() {
-  case $(menu "Branch" "master\ndev" "" "$(mothnixy-version-branch)") in
-  *master*) present_terminal "mothnixy-update-branch master" ;;
-  *dev*) present_terminal "mothnixy-update-branch dev" ;;
+  case $(menu "Branch" "master\ndev" "" "$(nixconfig-version-branch)") in
+  *master*) present_terminal "nixconfig-update-branch master" ;;
+  *dev*) present_terminal "nixconfig-update-branch dev" ;;
   *) show_update_menu ;;
   esac
 }
 show_update_process_menu() {
   case $(menu "Restart" "  Hypridle\n  Hyprsunset\n  Swayosd\n󰌧  Walker\n󰍜  Waybar") in
-  *Hypridle*) mothnixy-restart-hypridle ;;
-  *Hyprsunset*) mothnixy-restart-hyprsunset ;;
-  *Swayosd*) mothnixy-restart-swayosd ;;
-  *Walker*) mothnixy-restart-walker ;;
-  *Waybar*) mothnixy-restart-waybar ;;
+  *Hypridle*) nixconfig-restart-hypridle ;;
+  *Hyprsunset*) nixconfig-restart-hyprsunset ;;
+  *Swayosd*) nixconfig-restart-swayosd ;;
+  *Walker*) nixconfig-restart-walker ;;
+  *Waybar*) nixconfig-restart-waybar ;;
   *) show_update_menu ;;
   esac
 }
 
 show_update_config_menu() {
   case $(menu "Use default config" "  Hyprland\n  Hypridle\n  Hyprlock\n  Hyprsunset\n󱣴  Plymouth\n  Swayosd\n󰌧  Walker\n󰍜  Waybar") in
-  *Hyprland*) present_terminal mothnixy-refresh-hyprland ;;
-  *Hypridle*) present_terminal mothnixy-refresh-hypridle ;;
-  *Hyprlock*) present_terminal mothnixy-refresh-hyprlock ;;
-  *Hyprsunset*) present_terminal mothnixy-refresh-hyprsunset ;;
-  *Plymouth*) present_terminal mothnixy-refresh-plymouth ;;
-  *Swayosd*) present_terminal mothnixy-refresh-swayosd ;;
-  *Walker*) present_terminal mothnixy-refresh-walker ;;
-  *Waybar*) present_terminal mothnixy-refresh-waybar ;;
+  *Hyprland*) present_terminal nixconfig-refresh-hyprland ;;
+  *Hypridle*) present_terminal nixconfig-refresh-hypridle ;;
+  *Hyprlock*) present_terminal nixconfig-refresh-hyprlock ;;
+  *Hyprsunset*) present_terminal nixconfig-refresh-hyprsunset ;;
+  *Plymouth*) present_terminal nixconfig-refresh-plymouth ;;
+  *Swayosd*) present_terminal nixconfig-refresh-swayosd ;;
+  *Walker*) present_terminal nixconfig-refresh-walker ;;
+  *Waybar*) present_terminal nixconfig-refresh-waybar ;;
   *) show_update_menu ;;
   esac
 }
 
 show_update_hardware_menu() {
   case $(menu "Restart" "󱚾  Wi-Fi\n󰂯  Bluetooth") in
-  *Wi-Fi*) present_terminal mothnixy-restart-wifi ;;
-  *Bluetooth*) present_terminal mothnixy-restart-bluetooth ;;
+  *Wi-Fi*) present_terminal nixconfig-restart-wifi ;;
+  *Bluetooth*) present_terminal nixconfig-restart-bluetooth ;;
   *) show_update_menu ;;
   esac
 }
 
 show_update_password_menu() {
   case $(menu "Update Password" "  Drive Encryption\n  User") in
-  *Drive*) present_terminal mothnixy-drive-set-password ;;
+  *Drive*) present_terminal nixconfig-drive-set-password ;;
   *User*) present_terminal passwd ;;
   *) show_update_menu ;;
   esac
@@ -447,8 +447,8 @@ show_update_password_menu() {
 
 show_system_menu() {
   case $(menu "System" "  Lock\n󱄄  Screensaver\n󰤄  Suspend\n  Relaunch\n󰜉  Restart\n󰐥  Shutdown") in
-  *Lock*) mothnixy-lock-screen ;;
-  *Screensaver*) mothnixy-launch-screensaver force ;;
+  *Lock*) nixconfig-lock-screen ;;
+  *Screensaver*) nixconfig-launch-screensaver force ;;
   *Suspend*) systemctl suspend ;;
   *Relaunch*) uwsm stop ;;
   *Restart*) systemctl reboot ;;
@@ -476,7 +476,7 @@ go_to_menu() {
   *install*) show_install_menu ;;
   *remove*) show_remove_menu ;;
   *update*) show_update_menu ;;
-  *about*) mothnixy-launch-about ;;
+  *about*) nixconfig-launch-about ;;
   *system*) show_system_menu ;;
   esac
 }

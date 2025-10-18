@@ -9,5 +9,5 @@ sudo tailscale up --accept-routes
 echo -e "\nAdd tsui to sudoers..."
 echo "$USER ALL=(ALL) NOPASSWD: $(which tsui)" | sudo tee /etc/sudoers.d/tsui
 
-mothnixy-tui-install "Tailscale" "sudo tsui" float https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/tailscale-light.png
-mothnixy-webapp-install "Tailscale Admin Console" "https://login.tailscale.com/admin/machines" https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/tailscale-light.png
+nixconfig-tui-install "Tailscale" "sudo tsui" float https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/tailscale-light.png
+nixconfig-webapp-install "Tailscale Admin Console" "https://login.tailscale.com/admin/machines" https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/tailscale-light.png

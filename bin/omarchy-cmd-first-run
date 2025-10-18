@@ -2,7 +2,7 @@
 
 set -e
 
-FIRST_RUN_MODE=~/.local/state/mothnixy/first-run.mode
+FIRST_RUN_MODE=~/.local/state/nixconfig/first-run.mode
 
 if [[ -f "$FIRST_RUN_MODE" ]]; then
   rm -f "$FIRST_RUN_MODE"

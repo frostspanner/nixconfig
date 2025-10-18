@@ -1,14 +1,14 @@
 #!/bin/bash
 
 if (($# == 0)); then
-  echo "Usage: mothnixy-install-terminal [alacritty|ghostty|kitty]"
+  echo "Usage: nixconfig-install-terminal [alacritty|ghostty|kitty]"
   exit 1
 fi
 
 package="$1"
 
 # Install package
-mothnixy-pkg-add $package
+nixconfig-pkg-add $package
 
 # Set as default terminal
 echo "Setting $package as new default terminal..."

@@ -1,4 +1,4 @@
 #!/bin/bash
 
-mothnixy-refresh-config walker/config.toml
-mothnixy-restart-walker
+nixconfig-refresh-config walker/config.toml
+nixconfig-restart-walker

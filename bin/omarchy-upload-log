@@ -40,7 +40,7 @@ fi
 case "$LOG_TYPE" in
 install)
   ARCHINSTALL_LOG="/var/log/archinstall/install.log"
-  OMARCHY_LOG="/var/log/mothnixy-install.log"
+  OMARCHY_LOG="/var/log/nixconfig-install.log"
 
   # Combine system info with logs
   cat "$SYSTEM_INFO" >"$TEMP_LOG"

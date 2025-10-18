@@ -2,7 +2,7 @@
 
 set -e
 
-mothnixy-update-available-reset
-mothnixy-update-system-pkgs
-mothnixy-migrate
-mothnixy-update-restart
+nixconfig-update-available-reset
+nixconfig-update-system-pkgs
+nixconfig-migrate
+nixconfig-update-restart

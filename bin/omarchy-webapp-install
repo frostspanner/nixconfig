@@ -41,7 +41,7 @@ fi
 if [[ -n $CUSTOM_EXEC ]]; then
   EXEC_COMMAND="$CUSTOM_EXEC"
 else
-  EXEC_COMMAND="mothnixy-launch-webapp $APP_URL"
+  EXEC_COMMAND="nixconfig-launch-webapp $APP_URL"
 fi
 
 # Create application .desktop file

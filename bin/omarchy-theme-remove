@@ -1,10 +1,10 @@
 #!/bin/bash
 
-# mothnixy-theme-remove: Remove a theme from Omarchy by name
-# Usage: mothnixy-theme-remove <theme-name>
+# nixconfig-theme-remove: Remove a theme from Omarchy by name
+# Usage: nixconfig-theme-remove <theme-name>
 
 if [ -z "$1" ]; then
-  mapfile -t extra_themes < <(find ~/.config/mothnixy/themes -mindepth 1 -maxdepth 1 -type d ! -xtype l -printf '%f\n')
+  mapfile -t extra_themes < <(find ~/.config/nixconfig/themes -mindepth 1 -maxdepth 1 -type d ! -xtype l -printf '%f\n')
 
   if [[ ${#extra_themes[@]} -gt 0 ]]; then
     THEME_NAME=$(gum choose --header="Remove extra theme" "${extra_themes[@]}")
@@ -16,8 +16,8 @@ else
   THEME_NAME="$1"
 fi
 
-THEMES_DIR="$HOME/.config/mothnixy/themes"
-CURRENT_DIR="$HOME/.config/mothnixy/current"
+THEMES_DIR="$HOME/.config/nixconfig/themes"
+CURRENT_DIR="$HOME/.config/nixconfig/current"
 THEME_PATH="$THEMES_DIR/$THEME_NAME"
 
 # Ensure a theme was set
@@ -33,7 +33,7 @@ fi
 
 # Move to the next theme if the current theme is the one being removed
 if [ "$(readlink -f "$CURRENT_DIR/theme")" = "$(readlink -f "$THEME_PATH")" ]; then
-  mothnixy-theme-next
+  nixconfig-theme-next
 fi
 
 # Now remove the theme directory for THEME_NAME

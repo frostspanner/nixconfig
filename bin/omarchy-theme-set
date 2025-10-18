@@ -1,12 +1,12 @@
 #!/bin/bash
 
 if [[ -z $1 && $1 != "CNCLD" ]]; then
-  echo "Usage: mothnixy-theme-set <theme-name>"
+  echo "Usage: nixconfig-theme-set <theme-name>"
   exit 1
 fi
 
-THEMES_DIR="$HOME/.config/mothnixy/themes/"
-CURRENT_THEME_DIR="$HOME/.config/mothnixy/current/theme"
+THEMES_DIR="$HOME/.config/nixconfig/themes/"
+CURRENT_THEME_DIR="$HOME/.config/nixconfig/current/theme"
 
 THEME_NAME=$(echo "$1" | sed -E 's/<[^>]+>//g' | tr '[:upper:]' '[:lower:]' | tr ' ' '-')
 THEME_PATH="$THEMES_DIR/$THEME_NAME"
@@ -21,18 +21,18 @@ fi
 ln -nsf "$THEME_PATH" "$CURRENT_THEME_DIR"
 
 # Change background with theme
-mothnixy-theme-bg-next
+nixconfig-theme-bg-next
 
 # Restart components to apply new theme
-mothnixy-restart-waybar
-mothnixy-restart-swayosd
+nixconfig-restart-waybar
+nixconfig-restart-swayosd
 hyprctl reload
 pkill -SIGUSR2 btop
 makoctl reload
 
 # Change gnome, browser, vscode themes
-mothnixy-theme-set-terminal
-mothnixy-theme-set-gnome
-mothnixy-theme-set-eza
-mothnixy-theme-set-browser
-mothnixy-theme-set-vscode
+nixconfig-theme-set-terminal
+nixconfig-theme-set-gnome
+nixconfig-theme-set-eza
+nixconfig-theme-set-browser
+nixconfig-theme-set-vscode

@@ -1,18 +1,18 @@
 #!/bin/bash
 
-STATE_DIR="$HOME/.local/state/mothnixy"
+STATE_DIR="$HOME/.local/state/nixconfig"
 mkdir -p "$STATE_DIR"
 
 COMMAND="$1"
 STATE_NAME="$2"
 
 if [[ -z "$COMMAND" ]]; then
-  echo "Usage: mothnixy-state <set|clear> <state-name-or-pattern>"
+  echo "Usage: nixconfig-state <set|clear> <state-name-or-pattern>"
   exit 1
 fi
 
 if [[ -z "$STATE_NAME" ]]; then
-  echo "Usage: mothnixy-state $COMMAND <state-name>"
+  echo "Usage: nixconfig-state $COMMAND <state-name>"
   exit 1
 fi
 

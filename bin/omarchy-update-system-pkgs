@@ -2,7 +2,7 @@
 
 # Used in package emergencies if a bad package has been pushed and we can't revoke.
 # Requires manually installing the good package using sudo pacman -U <url>
-ignored_packages=$(mothnixy-pkg-ignored)
+ignored_packages=$(nixconfig-pkg-ignored)
 
 echo -e "\e[32m\nUpdate system packages\e[0m"
 [[ -n $ignored_packages ]] && echo "sudo pacman -Syu --noconfirm --ignore \"$ignored_packages\""
@@ -10,7 +10,7 @@ sudo pacman -Syu --noconfirm --ignore "$ignored_packages"
 
 # Update AUR packages if any are installed
 if pacman -Qem >/dev/null; then
-  if mothnixy-pkg-aur-accessible; then
+  if nixconfig-pkg-aur-accessible; then
     echo -e "\e[32m\nUpdate AUR packages\e[0m"
     [[ -n $ignored_packages ]] && echo "yay -Sua --noconfirm  --ignore \"$ignored_packages\""
     yay -Sua --noconfirm --ignore "$ignored_packages"

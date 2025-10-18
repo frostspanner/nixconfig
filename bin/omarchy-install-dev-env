@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [[ -z "$1" ]]; then
-  echo "Usage: mothnixy-install-dev-env <ruby|node|bun|go|laravel|symfony|php|python|elixir|phoenix|rust|java|ocaml|dotnet|clojure>" >&2
+  echo "Usage: nixconfig-install-dev-env <ruby|node|bun|go|laravel|symfony|php|python|elixir|phoenix|rust|java|ocaml|dotnet|clojure>" >&2
   exit 1
 fi
 
@@ -81,7 +81,7 @@ laravel)
 symfony)
   echo -e "Installing PHP and Symfony...\n"
   install_php
-  mothnixy-pkg-add symfony-cli
+  nixconfig-pkg-add symfony-cli
   echo -e "\nYou can now run: symfony new --webapp myproject"
   ;;
 python)
@@ -134,7 +134,7 @@ dotnet)
   ;;
 clojure)
   echo -e "Installing Clojure...\n"
-  mothnixy-pkg-add rlwrap
+  nixconfig-pkg-add rlwrap
   mise use --global clojure@latest
   ;;
 esac

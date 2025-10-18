@@ -2,8 +2,8 @@
 
 # Cycles through the background images available
 
-BACKGROUNDS_DIR="$HOME/.config/mothnixy/current/theme/backgrounds/"
-CURRENT_BACKGROUND_LINK="$HOME/.config/mothnixy/current/background"
+BACKGROUNDS_DIR="$HOME/.config/nixconfig/current/theme/backgrounds/"
+CURRENT_BACKGROUND_LINK="$HOME/.config/nixconfig/current/background"
 
 mapfile -d '' -t BACKGROUNDS < <(find "$BACKGROUNDS_DIR" -type f -print0 | sort -z)
 TOTAL=${#BACKGROUNDS[@]}

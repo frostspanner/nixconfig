@@ -2,7 +2,7 @@
   self,
   nixpkgs,
   disko,
-  hyprland,
+  # hyprland,
   ...
 } @ inputs: let
   systems = [

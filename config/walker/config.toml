@@ -1,7 +1,7 @@
 close_when_open = true
-theme = "mothnixy-default"
+theme = "nixconfig-default"
 theme_base = []
-theme_location = ["~/mothnixy/default/walker/themes/"]
+theme_location = ["~/nixconfig/default/walker/themes/"]
 hotreload_theme = true
 force_keyboard_focus = true
 timeout = 60
@@ -39,13 +39,13 @@ hidden = true
 
 [[builtins.bookmarks.entries]]
 label = "Omarchy - Github"
-url = "https://github.com/basecamp/mothnixy"
-keywords = ["mothnixy", "github"]
+url = "https://github.com/basecamp/nixconfig"
+keywords = ["nixconfig", "github"]
 
 [[builtins.bookmarks.entries]]
 label = "Omarchy Manual"
-url = "https://manuals.omamix.org/2/the-mothnixy-manual"
-keywords = ["mothnixy"]
+url = "https://manuals.omamix.org/2/the-nixconfig-manual"
+keywords = ["nixconfig"]
 
 [builtins.calc]
 name = "Calculator"
