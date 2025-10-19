@@ -9,6 +9,14 @@
     "x86_64-linux"
   ];
   forAllSystems = nixpkgs.lib.genAttrs systems;
+  forEachSupportedSystem = 
+  f:
+  inputs.nixpkgs.lib.genAttrs systems (
+  system:
+  f {
+		  pkgs = import inputs.nixpkgs { inherit system;};
+	  }
+  );
   host = builtins.attrNames (builtins.readDir ./hosts);
   desktop = builtins.attrNames (builtins.readDir ./desktops);
   theme = builtins.attrNames (builtins.readDir ./themes);
@@ -31,4 +39,15 @@ in {
     })
     cfgs
   );
+      devShells = forEachSupportedSystem (
+        { pkgs }:
+        {
+          default = pkgs.mkShellNoCC {
+            packages = with pkgs; [
+              nixd
+              niv
+            ];
+          };
+        }
+      );
 }

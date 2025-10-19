@@ -2,9 +2,7 @@
 {
 programs.niri.enable = true;
 programs.waybar.enable = true;
-services.hypridle.enable = true;
 services.flatpak.enable = true;
-programs.hyprlock.enable = true;
 imports = [
 ../../packages/desktop.nix
 ../../packages/cli.nix
@@ -14,6 +12,8 @@ imports = [
 environment.systemPackages = with pkgs; [
 alacritty
 fuzzel
+swaylock
+swayidle
 xwayland-satellite
 nautilus #needed for file picker
 ];

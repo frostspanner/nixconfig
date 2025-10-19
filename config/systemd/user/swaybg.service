@@ -4,5 +4,5 @@ After=graphical-session.target
 Requisite=graphical-session.target
 
 [Service]
-ExecStart=swaybg -m fill -i "%h/.config/nixconfig/current/theme/backgrounds/background"
+ExecStart=/run/current-system/sw/bin/swaybg -m fill -i "%h/.config/nixconfig/current/theme/backgrounds/background"
 Restart=on-failure

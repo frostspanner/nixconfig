@@ -3,7 +3,7 @@ let
 in
 {
   programs.neovim = {
-    enable = true;
+    enable = false;
     configure = {
       packages.myVimPackage = with pkgs.vimPlugins; {
         start = [
@@ -31,4 +31,7 @@ in
 '';
     };
   };
+  environment.systemPackages = [
+  pkgs.neovim
+  ];
 }
