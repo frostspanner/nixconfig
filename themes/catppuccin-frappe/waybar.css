@@ -1,0 +1,6 @@
+@define-color foreground #c6d0f6;
+/* @define-color background #292c3d; */
+/* @define-color background #232634; */
+@define-color background #232634;
+@define-color shadow rgba(0,0,0,0.4);
+@define-color accent #85c1dc;

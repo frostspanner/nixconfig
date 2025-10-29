@@ -28,14 +28,14 @@
   #xdg.portal.enable = true;
   #xdg.portal.config.common.default = "*";
   #xdg.portal.extraPortals = with pkgs; [
-    #xdg-desktop-portal-hyprland
+  #xdg-desktop-portal-hyprland
   #  xdg-desktop-portal-gtk
   #];
 
   imports = [
-  ../../packages/desktop.nix
-  ../../packages/cli.nix
-  ../../packages/twm.nix
+    ../../packages/desktop.nix
+    ../../packages/cli.nix
+    ../../packages/twm.nix
   ];
 
   environment.systemPackages = with pkgs; [
@@ -53,10 +53,10 @@
   system.activationScripts = {
     # swayosd cannot set brightness issue on NixOS see
     # https://github.com/ErikReider/SwayOSD/issues/12#issuecomment-1950581102
-    fix-brightness-file-permission.text = ''       
-      chgrp video /sys/class/backlight/nvidia_0/brightness 
-      chmod g+w /sys/class/backlight/nvidia_0/brightness 
-      '';
+    fix-brightness-file-permission.text = ''
+      chgrp video /sys/class/backlight/nvidia_0/brightness
+      chmod g+w /sys/class/backlight/nvidia_0/brightness
+    '';
   };
 
   systemd.services.swayosd-libinput-backend = {

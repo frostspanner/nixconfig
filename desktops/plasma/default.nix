@@ -16,12 +16,11 @@
     kolourpaint
   ];
 in {
-
   services.flatpak.enable = true;
   #xdg.portal.enable = true;
   #xdg.portal.config.common.default = "*";
   #xdg.portal.extraPortals = with pkgs; [
-    #xdg-desktop-portal-hyprland
+  #xdg-desktop-portal-hyprland
   #  xdg-desktop-portal-gtk
   #];
   services.xserver.enable = true;

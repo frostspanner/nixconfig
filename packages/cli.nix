@@ -1,5 +1,4 @@
-{pkgs, ...}:
-{
+{pkgs, ...}: {
   environment.systemPackages = with pkgs; [
     cpufrequtils
     bat
@@ -7,6 +6,7 @@
     curl
     fd
     fzf
+    jq
     less
     imagemagick
     man
@@ -24,5 +24,5 @@
     xdg-utils
     yazi
     zip
-    ];
+  ];
 }
